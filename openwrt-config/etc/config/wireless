@@ -1,0 +1,29 @@
+
+config wifi-device 'radio0'
+	option type 'mac80211'
+	option channel '11'
+	option path 'platform/ar933x_wmac'
+	list ht_capab 'SHORT-GI-20'
+	list ht_capab 'SHORT-GI-40'
+	list ht_capab 'RX-STBC1'
+	list ht_capab 'DSSS_CCK-40'
+	option htmode 'HT20'
+	option hwmode '11g'
+	option txpower '12'
+	option country 'US'
+
+config wifi-iface
+	option device 'radio0'
+	option network 'lan'
+	option mode 'ap'
+	option ssid 'OpenWrt'
+	option encryption 'none'
+	option disabled '1'
+
+config wifi-iface
+	option device 'radio0'
+	option encryption 'none'
+	option ssid 'Nikon_WU2_0090B529D73B'
+	option mode 'sta'
+	option network 'nikon'
+
