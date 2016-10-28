@@ -7,11 +7,11 @@ Automation tools for a digital camera used in a FabLab environment
 * OpenWRT Accesspoint (we use a TP-Link WR710N)
 
 ## Content
-* `fablabap-config`: Contains the required configuration of the OpenWRT AP (**CONTAINS PASSWORD HASH AND UNENCRYPTED PRIVATE KEY DATA**)
+* `fablabap-config`: Contains the required configuration of the OpenWRT AP
 
 to apply this configuration, archive the content of the folder to .tar.bz2 and upload via System->Backup/Flash Firmware option in OpenWRT Webinterface
 
-* `macgyver-config`: Contains the required files that are found in the user's home on a remote server (**CONTAINS UNENCRYPTED PASSWORD**)
+* `macgyver-config`: Contains the required files that are found in the user's home on a remote server
 
 ## Architecture (and current setup)
 ```

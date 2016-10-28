@@ -5,11 +5,11 @@
 #               simplejson from http://pypi.python.org/pypi/simplejson
 ##########
  
-EMAIL='***REMOVED***'
-PASSWORD='***REMOVED***'
+EMAIL='SMUGMUG USERADRESS'
+PASSWORD='SMUGMUG PASSWORD'
  
 ##########
-APIKEY='***REMOVED***'
+APIKEY='SMUGMUG APIKEY'
 API_VERSION='1.2.2'
 API_URL='https://api.smugmug.com/services/api/json/1.2.2/'
 UPLOAD_URL='http://upload.smugmug.com/photos/xmlrawadd.mg'
