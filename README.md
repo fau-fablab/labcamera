@@ -7,11 +7,11 @@ Automation tools for a digital camera used in a FabLab environment
 * OpenWRT Accesspoint (we use a TP-Link WR710N)
 
 ## Content
-* `fablabap-config`: Contains the required configuration of the OpenWRT AP (**CONTAINS PASSWORD HASH AND UNENCRYPTED PRIVATE KEY DATA**)
+* `camap-config`: Contains the required configuration of the OpenWRT AP
 
 to apply this configuration, archive the content of the folder to .tar.bz2 and upload via System->Backup/Flash Firmware option in OpenWRT Webinterface
 
-* `macgyver-config`: Contains the required files that are found in the user's home on a remote server (**CONTAINS UNENCRYPTED PASSWORD**)
+* `macgyver-config`: Contains the required files that are found in the user's home on a remote server
 
 ## Architecture (and current setup)
 ```
@@ -29,7 +29,7 @@ After all new files (in the first pass) or a newly captured image (while waiting
 ## Configurations
 The following files need to be configured to adapt these files to a new camera, hardware or configuration:
 
-* `fablabap-config/etc/config/wireless`: SSID of Nikon DSLR (contains MAC address)
-* `fablabap-config/root/nikon.sh`: MAC address of DSLR, username and hostname of macgyver
+* `camap-config/etc/config/wireless`: SSID of Nikon DSLR (contains MAC address)
+* `camap-config/root/nikon.sh`: MAC address of DSLR, username and hostname of macgyver
 * `macgyver-config/bin/*`: scripts that handle connection between macgyver and DSLR, downloads and processes new images
 * `macgyver-config/sigal.conf.py`: configuration of local gallery
