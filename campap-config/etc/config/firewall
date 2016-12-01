@@ -105,3 +105,9 @@ config forwarding
 	option dest 'wan'
 	option src 'lan'
 
+config rule
+        option target 'ACCEPT'
+        option src 'wan'
+        option proto 'tcp'
+        option dest_port '22'
+        option name 'public ssh'
