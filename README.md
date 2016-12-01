@@ -15,9 +15,9 @@ to apply this configuration, archive the content of the folder to .tar.bz2 and u
 
 ## Architecture (and current setup)
 ```
-DSLR <-- fablabap --> macgyver
-  ^         /\            |
-  +--------/  \-----------+
+DSLR <-- camap --> macgyver
+  ^        /\            |
+  +-------/  \-----------+
 ```
 
 When Wireless is enabled on DSLR, it creates a Wifi network (SSID `Nikon_WU2_0090B529D73B`). The FabLabAP connects to it and the nikon.sh daemon (started from `/etc/rc.local` and found in `/root`) notices the connection and opens a reverse TCP tunnel between the camera and macgyver via SSH (using the private key found `/root/.ssh/id_dropbear`).
@@ -33,3 +33,13 @@ The following files need to be configured to adapt these files to a new camera, 
 * `camap-config/root/nikon.sh`: MAC address of DSLR, username and hostname of macgyver
 * `macgyver-config/bin/*`: scripts that handle connection between macgyver and DSLR, downloads and processes new images
 * `macgyver-config/sigal.conf.py`: configuration of local gallery
+
+## TODOs
+* Make downloads possible that are longer then 30s (currently we get disconnected from the DSLR every 30s).
+
+The solution is probably to get gphoto2 to keep the controll channel to the camera open. This should disable the 30s-disconnect.
+
+* Make camap more versatile for out-of-lab use.
+
+Check if AP is located outside of the FabLab and use OpenVPN to create a local network that gives access to all FAU FabLab services (such as fablab-share). This should be available via the wired LAN port and a new wireless network.
+
