@@ -7,7 +7,7 @@ Automation tools for a digital camera used in a FabLab environment
 * OpenWRT Accesspoint (we use a TP-Link WR710N)
 
 ## Content
-* `camap-config`: Contains the required configuration of the OpenWRT AP
+* `fablabap-config`: Contains the required configuration of the OpenWRT AP
 
 to apply this configuration, archive the content of the folder to .tar.bz2 and upload via System->Backup/Flash Firmware option in OpenWRT Webinterface
 
@@ -15,9 +15,9 @@ to apply this configuration, archive the content of the folder to .tar.bz2 and u
 
 ## Architecture (and current setup)
 ```
-DSLR <-- camap --> shell.fablab.fau.de
-  ^        /\            |
-  +-------/  \-----------+
+DSLR <-- fablabap --> shell.fablab.fau.de
+  ^         /\            |
+  +--------/  \-----------+
 ```
 
 When Wireless is enabled on DSLR, it creates a Wifi network (SSID `Nikon_WU2_0090B529D73B`). The FabLabAP connects to it and the nikon.sh daemon (started from `/etc/rc.local` and found in `/root`) notices the connection and opens a reverse TCP tunnel between the camera and shell.fablab.fau.de via SSH (using the private key found `/root/.ssh/id_dropbear`).
@@ -29,8 +29,8 @@ After all new files (in the first pass) or a newly captured image (while waiting
 ## Configurations
 The following files need to be configured to adapt these files to a new camera, hardware or configuration:
 
-* `camap-config/etc/config/wireless`: SSID of Nikon DSLR (contains MAC address)
-* `camap-config/root/nikon.sh`: MAC address of DSLR, username and hostname of shell.fablab.fau.de
+* `fablabap-config/etc/config/wireless`: SSID of Nikon DSLR (contains MAC address)
+* `fablabap-config/root/nikon.sh`: MAC address of DSLR, username and hostname of shell.fablab.fau.de
 * `server-config/bin/*`: scripts that handle connection between shell.fablab.fau.de and DSLR, downloads and processes new images
 * `server-config/sigal.conf.py`: configuration of local gallery
 
@@ -42,4 +42,3 @@ The solution is probably to get gphoto2 to keep the controll channel to the came
 * Make camap more versatile for out-of-lab use.
 
 Check if AP is located outside of the FabLab and use OpenVPN to create a local network that gives access to all FAU FabLab services (such as fablab-share). This should be available via the wired LAN port and a new wireless network.
-

@@ -1,8 +1,8 @@
 # SETUP Private Data
 --------------------
 
-## shell-config
-In file `shell-config/bin/smugmug-uploader.py`:
+## server-config
+In file `server-config/bin/smugmug-uploader.py`:
 * set EMAIL to the adress with which you registered with Smugmug
 * set PASSWORD to your Smugmug Password
 * set APIKEY to your Smugmug API-Key
